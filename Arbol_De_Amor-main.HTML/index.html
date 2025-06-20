@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árbol de Amor Animado</title>
+    <!-- Autoría y derechos -->
+    <meta name="author" content="Zero">
+    <meta name="copyright" content="Zero - Código libre no comercial">
+    <meta name="description" content="Árbol de Amor Animado: una sorpresa interactiva y romántica para dedicar a tu pareja o ser querido. Código libre para uso personal, educativo o de inspiración.">
+    <meta name="keywords" content="amor, sorpresa, romántico, dedicatoria, animación, árbol, corazones, pareja, aniversario, regalo digital">
+    <meta name="robots" content="index, follow">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/style.mobile.css" media="only screen and (max-width: 600px)">
+    <style>
+      body {
+        background: #ff2ea1;
+        color: #fff;
+      }
+      .tree-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 400px;
+        z-index: 2;
+      }
+      .animated-heart {
+        transform-origin: center;
+        animation: beat 1s infinite;
+      }
+      @keyframes beat {
+        0%, 100% { transform: scale(1); }
+        20% { transform: scale(1.1); }
+        40% { transform: scale(0.95); }
+        60% { transform: scale(1.08); }
+        80% { transform: scale(1); }
+      }
+      .countdown {
+        text-align: center;
+        font-size: 2rem;
+        margin-top: 20px;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+    </style>
+</head>
+<body>
+    <div id="floating-objects"></div>
+    <div class="dedication-text" id="dedication-text">
+      <div class="signature" id="signature"></div>
+    </div>
+    <div class="countdown" id="countdown"></div>
+    <div class="countdown" id="countdown2" style="margin-top:10px;"></div>
+    <div class="tree-container" id="tree-container"></div>
+    <audio src="Music/WhatsApp Audio 2025-06-14 at 00.17.19.mpeg" id="bg-music" preload="auto"></audio>
+    <script>
+      // Contador regresivo hasta el 1 de agosto de 2025
+      const countdownElement = document.getElementById('countdown');
+      const targetDate = new Date('2025-08-01T00:00:00');
+      function updateCountdown() {
+        const now = new Date();
+        const diff = targetDate - now;
+        if (diff <= 0) {
+          countdownElement.textContent = "¡Llegó el día!";
+          return;
+        }
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+        countdownElement.textContent = 
+          `${days} días ${hours}h ${minutes}m ${seconds}s para el 1 de agosto de 2025`;
+      }
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // Contador regresivo hasta el 25 de agosto de 2025
+      const countdownElement2 = document.getElementById('countdown2');
+      const targetDate2 = new Date('2025-08-25T00:00:00');
+      function updateCountdown2() {
+        const now = new Date();
+        const diff = targetDate2 - now;
+        if (diff <= 0) {
+          countdownElement2.textContent = "¡Llegó el día!";
+          return;
+        }
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+        countdownElement2.textContent = 
+          `${days} días ${hours}h ${minutes}m ${seconds}s para el 25 de agosto de 2025`;
+      }
+      setInterval(updateCountdown2, 1000);
+      updateCountdown2();
+    </script>
+    <script src="Js/script.js"></script>
+</body>
+</html>
